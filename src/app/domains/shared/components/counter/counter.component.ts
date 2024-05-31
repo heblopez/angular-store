@@ -1,9 +1,10 @@
 import { Component, Input, SimpleChanges } from '@angular/core';
+import { ProductComponent } from '../../../products/components/product/product.component';
 
 @Component({
   selector: 'app-counter',
   standalone: true,
-  imports: [],
+  imports: [ProductComponent],
   templateUrl: './counter.component.html',
   styleUrl: './counter.component.css',
 })
@@ -11,16 +12,35 @@ export class CounterComponent {
   @Input({ required: true }) duration: number = 0;
   @Input({ required: true }) message: string = '';
 
-  constructor(){
-    // Before render:
-    console.log("**** Constructor ****");
-    console.log("-".repeat(12));
+  constructor() {
+    // Before render(once), Not async:
+    console.log('**** Constructor ****');
+    console.log('-'.repeat(12));
   }
 
-  ngOnChanges(changes: SimpleChanges){
+  ngOnChanges(changes: SimpleChanges) {
     // Before and during render:
-    console.log("**** ngOnChanges ****");
-    console.log("-".repeat(12));
+    console.log('**** ngOnChanges ****');
+    console.log('-'.repeat(12));
     console.log(changes);
+  }
+
+  ngOnInit() {
+    // After render(once), async functions allowed:
+    console.log('**** ngOnInit ****');
+    console.log('-'.repeat(12));
+    console.log('Duration => ', this.duration);
+    console.log('Message => ', this.message);
+  }
+
+  ngAfterViewInit(){
+    // After render, when the children of the component have already been rendered:
+    console.log('**** ngAfterViewInit ****');
+    console.log('-'.repeat(12));
+  }
+
+  ngOnDestroy(){
+    console.log('**** ngOnDestroy ****');
+    console.log('-'.repeat(12));
   }
 }
