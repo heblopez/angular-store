@@ -1,4 +1,4 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
+import { Component, Input, signal, SimpleChanges } from '@angular/core';
 import { ProductComponent } from '../../../products/components/product/product.component';
 
 @Component({
@@ -11,6 +11,8 @@ import { ProductComponent } from '../../../products/components/product/product.c
 export class CounterComponent {
   @Input({ required: true }) duration: number = 0;
   @Input({ required: true }) message: string = '';
+  counter = signal(0);
+  counterId: number | undefined;
 
   constructor() {
     // Before render(once), Not async:
@@ -23,8 +25,9 @@ export class CounterComponent {
     console.log('**** ngOnChanges ****');
     console.log('-'.repeat(12));
     console.log(changes);
-    const duration = changes['duration']
-    if (duration && duration.currentValue !== duration.previousValue) this.doSomething()
+    const duration = changes['duration'];
+    if (duration && duration.currentValue !== duration.previousValue)
+      this.doSomething();
   }
 
   ngOnInit() {
@@ -33,6 +36,10 @@ export class CounterComponent {
     console.log('-'.repeat(12));
     console.log('Duration => ', this.duration);
     console.log('Message => ', this.message);
+    this.counterId = setInterval(() => {
+      console.log('Run interval');
+      this.counter.update((prev) => prev + 1);
+    }, 1000);
   }
 
   ngAfterViewInit() {
@@ -44,9 +51,10 @@ export class CounterComponent {
   ngOnDestroy() {
     console.log('**** ngOnDestroy ****');
     console.log('-'.repeat(12));
+    clearInterval(this.counterId);
   }
 
   doSomething() {
-    console.log("Change duration");
+    console.log('Change duration');
   }
 }
