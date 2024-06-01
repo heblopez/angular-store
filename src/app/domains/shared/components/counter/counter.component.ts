@@ -19,10 +19,12 @@ export class CounterComponent {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    // Before and during render:
+    // Before and during render, async functions allowed:
     console.log('**** ngOnChanges ****');
     console.log('-'.repeat(12));
     console.log(changes);
+    const duration = changes['duration']
+    if (duration && duration.currentValue !== duration.previousValue) this.doSomething()
   }
 
   ngOnInit() {
@@ -33,14 +35,18 @@ export class CounterComponent {
     console.log('Message => ', this.message);
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
     // After render, when the children of the component have already been rendered:
     console.log('**** ngAfterViewInit ****');
     console.log('-'.repeat(12));
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     console.log('**** ngOnDestroy ****');
     console.log('-'.repeat(12));
+  }
+
+  doSomething() {
+    console.log("Change duration");
   }
 }
