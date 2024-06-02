@@ -85,10 +85,16 @@
       </svg>
     </button>
   </div>
-  @for (product of cart; track $index){
-    <div>
-      <p>{{product.title}}</p>
-      <p>{{product.price}}</p>
-    </div>
-  }
+  <div class="pt-4 flex flex-col">
+    @for (product of cart; track $index){
+      <div class="flex justify-between items-center space-y-2">
+        <div class="flex space-x-2 items-center">
+          <img class="w-6 h-6" [src]="product.imageUrl" [alt]="product.title">
+          <h3>{{ product.title }}</h3>  
+        </div>
+        <p>$ {{ product.price }}</p>
+      </div>
+    }
+    <p>Total: $ {{total()}}</p>
+  </div>
 </div>
