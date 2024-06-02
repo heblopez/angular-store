@@ -11,10 +11,10 @@ import { Product } from 'app/domains/shared/models/product.model';
 export class ProductComponent {
   @Input({ required: true }) product!: Product;
 
-  @Output() addToCart = new EventEmitter<string>();
+  @Output() addToCart = new EventEmitter<Product>();
 
   addToCartHandler() {
     console.log('click from child ' + this.product.title);
-    this.addToCart.emit('Hi! This is a test message from child');
+    this.addToCart.emit(this.product);
   }
 }
