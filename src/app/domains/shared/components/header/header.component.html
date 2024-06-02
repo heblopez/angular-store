@@ -41,7 +41,7 @@
     <div class="flex items-center">
       <button class="p-2 border rounded relative" (click)="toogleSideMenu()">
         <div class="absolute flex justify-center items-center -top-3 -left-5 rounded h-5 w-5 bg-black text-white text-xs">
-          {{cart.length}}
+          {{cart().length}}
         </div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +86,7 @@
     </button>
   </div>
   <div class="pt-4 flex flex-col">
-    @for (product of cart; track $index){
+    @for (product of cart(); track $index){
       <div class="flex justify-between items-center space-y-2">
         <div class="flex space-x-2 items-center">
           <img class="w-6 h-6" [src]="product.imageUrl" [alt]="product.title">
@@ -95,6 +95,6 @@
         <p>$ {{ product.price }}</p>
       </div>
     }
-    <p>Total: $ {{total()}}</p>
+    <p class="text-right mt-2">Total: $ {{total()}}</p>
   </div>
 </div>
