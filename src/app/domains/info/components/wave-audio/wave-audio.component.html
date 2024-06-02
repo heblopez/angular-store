@@ -1,4 +1,9 @@
 <div>
   <div class="my-2" #wave></div>
-  <button class="my-4 p-2 rounded-lg text-white bg-indigo-700" (click)="playPause()">{{ isPlaying() ? 'Pause ⏸' : 'Play ▶'}}</button>
+  <button
+    class="my-4 p-2 rounded-lg text-white bg-indigo-700"
+    (click)="playPause()"
+  >
+    {{ isPlaying() ? 'Pause ⏸' : 'Play ▶'}}
+  </button>
 </div>
