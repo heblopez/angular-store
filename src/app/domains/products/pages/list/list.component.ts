@@ -1,11 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { ProductComponent } from '../../components/product/product.component';
 import { Product } from 'app/domains/shared/models/product.model';
+import { HeaderComponent } from 'app/domains/shared/components/header/header.component';
 
 @Component({
   selector: 'app-list',
   standalone: true,
-  imports: [ProductComponent],
+  imports: [ProductComponent, HeaderComponent],
   templateUrl: './list.component.html',
   styleUrl: './list.component.css',
 })
@@ -40,6 +41,27 @@ export class ListComponent {
         title: 'Product 4',
         price: 699,
         imageUrl: 'https://picsum.photos/640/640?r=39',
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: Date.now() + 4,
+        title: 'Product 5',
+        price: 499,
+        imageUrl: 'https://picsum.photos/640/640?r=45',
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: Date.now() + 5,
+        title: 'Product 6',
+        price: 599,
+        imageUrl: 'https://picsum.photos/640/640?r=48',
+        createdAt: new Date().toISOString(),
+      },
+      {
+        id: Date.now() + 6,
+        title: 'Product 7',
+        price: 777,
+        imageUrl: 'https://picsum.photos/640/640?r=57',
         createdAt: new Date().toISOString(),
       },
     ];
