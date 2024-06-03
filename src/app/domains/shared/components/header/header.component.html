@@ -87,12 +87,12 @@
   </div>
   <div class="pt-4 flex flex-col">
     @for (product of cart(); track $index){
-      <div class="flex justify-between items-center space-y-2">
+      <div class="flex justify-between items-center my-2">
         <div class="flex space-x-2 items-center">
           <img class="w-6 h-6" [src]="product.images[0]" [alt]="product.title">
-          <h3>{{ product.title }}</h3>  
+          <p class="">{{ product.title }}</p>  
         </div>
-        <p>$ {{ product.price }}</p>
+        <p class="min-w-fit">$ {{ product.price }}</p>
       </div>
     }
     <p class="text-right mt-2">Total: $ {{total()}}</p>
