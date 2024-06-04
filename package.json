@@ -18,8 +18,9 @@
     "@angular/platform-browser": "^18.0.1",
     "@angular/platform-browser-dynamic": "^18.0.1",
     "@angular/router": "^18.0.1",
+    "date-fns": "^3.6.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.6.2",
     "wavesurfer.js": "^7.7.15",
     "zone.js": "~0.14.3"
   },
