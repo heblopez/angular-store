@@ -1,17 +1,18 @@
-<div class="px-10">
-  <h1 class="text-lg font-bold">About</h1>
-  <p class="text-sm">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque nam
-    repudiandae omnis, repellendus ipsum <span highlight>alias</span> iusto velit voluptates fuga modi
-    fugiat nihil a quaerat provident mollitia incidunt cumque, quidem voluptate.
-  </p>
-  <p class="text-sm">
-    Number of customers
-    @if (duration() > 0) {
-    <app-counter [duration]="duration()" [message]="message()" />
-    }
-  </p>
-  <div>
-    <app-wave-audio audioUrl="assets/audio.mp3"/>
-  </div>
+<div class="container mx-auto">
+  <app-header/>
+    <h1 class="text-lg font-bold my-4">About</h1>
+    <p class="text-sm">
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque nam
+      repudiandae omnis, repellendus ipsum <span highlight>alias</span> iusto velit voluptates fuga modi
+      fugiat nihil a quaerat provident mollitia incidunt cumque, quidem voluptate.
+    </p>
+    <p class="text-sm">
+      Number of customers
+      @if (duration() > 0) {
+      <app-counter [duration]="duration()" [message]="message()" />
+      }
+    </p>
+    <div>
+      <app-wave-audio audioUrl="assets/audio.mp3"/>
+    </div>
 </div>
