@@ -2,3 +2,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --air-force-blue: #4B88A2;
+  --fire-brick: #BB0A21;
+  --platinum: #D3D4D9;
+  --snow: #FFF9FB;
+  --eerie-black: #252627;
+  --blue-dark: #145C9E;
+  --pink: #fdabaf;
+}
