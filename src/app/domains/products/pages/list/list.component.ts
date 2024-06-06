@@ -26,15 +26,11 @@ export class ListComponent {
   constructor() {}
 
   ngOnInit() {
-    this.getProducts();
     this.getCategories();
   }
 
-  ngOnChanges(changes: SimpleChanges){    
-    const categoryId = changes['category_id']
-    if (categoryId) {
-      this.getProducts()
-    }
+  ngOnChanges(changes: SimpleChanges) {
+    this.getProducts();
   }
 
   addToCart(product: Product) {
