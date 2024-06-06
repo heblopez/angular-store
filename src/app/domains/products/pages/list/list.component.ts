@@ -4,6 +4,8 @@ import { Product } from '@shared/models/product.model';
 import { HeaderComponent } from '@shared/components/header/header.component';
 import { CartService } from '@shared/services/cart.service';
 import { ProductService } from '@shared/services/product.service';
+import { CategoryService } from '@/app/domains/shared/services/category.service';
+import { Category } from '@/app/domains/shared/models/category.model';
 
 @Component({
   selector: 'app-list',
@@ -14,20 +16,16 @@ import { ProductService } from '@shared/services/product.service';
 })
 export class ListComponent {
   products = signal<Product[]>([]);
+  categories = signal<Category[]>([]);
   private cartService = inject(CartService);
   private productService = inject(ProductService);
+  private categoryService = inject(CategoryService);
 
   constructor() {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe({
-      next: (productsData) => {
-        const products = this.sanitizeImagesUrl(productsData);
-        this.products.set(products);
-      },
-      error: (error) => console.error(error),
-      complete: () => console.log('Products loaded:', this.products()),
-    });
+    this.getProducts();
+    this.getCategories();
   }
 
   addToCart(product: Product) {
@@ -44,5 +42,24 @@ export class ListComponent {
       return product;
     });
     return products;
+  }
+
+  private getProducts() {
+    this.productService.getProducts().subscribe({
+      next: (productsData) => {
+        const products = this.sanitizeImagesUrl(productsData);
+        this.products.set(products);
+      },
+      error: (error) => console.error(error),
+      complete: () => console.log('Products loaded: ', this.products()),
+    });
+  }
+
+  private getCategories() {
+    this.categoryService.getAllCategories().subscribe({
+      next: (categories) => this.categories.set(categories),
+      error: (e) => console.error(e),
+      complete: () => console.log('Categories loaded: ', this.categories()),
+    });
   }
 }

@@ -20,14 +20,14 @@
     "@angular/router": "^18.0.1",
     "date-fns": "^3.6.0",
     "rxjs": "~7.8.0",
-    "tslib": "^2.6.2",
+    "tslib": "^2.6.3",
     "wavesurfer.js": "^7.7.15",
     "zone.js": "~0.14.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^18.0.1",
     "@angular/cli": "^18.0.1",
-    "@angular/compiler-cli": "^18.0.0",
+    "@angular/compiler-cli": "^18.0.1",
     "@types/jasmine": "~5.1.0",
     "autoprefixer": "^10.4.19",
     "jasmine-core": "~5.1.0",
