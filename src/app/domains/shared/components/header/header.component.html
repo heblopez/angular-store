@@ -95,9 +95,9 @@
           <img class="w-6 h-6" [src]="product.images[0]" [alt]="product.title">
           <p class="">{{ product.title }}</p>  
         </div>
-        <p class="min-w-fit">$ {{ product.price }}</p>
+        <p class="min-w-fit">{{ product.price | currency:'$':'symbol':'1.2' }}</p>
       </div>
     }
-    <p class="text-right mt-2">Total: $ {{total()}}</p>
+    <p class="text-right mt-2">Total: {{ total() | currency }}</p>
   </div>
 </div>

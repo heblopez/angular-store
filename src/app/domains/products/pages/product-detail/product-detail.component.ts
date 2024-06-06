@@ -1,4 +1,5 @@
 import { Product } from '@/app/domains/shared/models/product.model';
+import { CartService } from '@/app/domains/shared/services/cart.service';
 import { ProductService } from '@/app/domains/shared/services/product.service';
 import { CommonModule } from '@angular/common';
 import { Component, inject, Input, signal } from '@angular/core';
@@ -11,10 +12,11 @@ import { Component, inject, Input, signal } from '@angular/core';
   styleUrl: './product-detail.component.css',
 })
 export class ProductDetailComponent {
-  private productService = inject(ProductService);
   @Input() id?: string;
   product = signal<Product | null>(null);
   coverImg = signal<string>('');
+  private productService = inject(ProductService);
+  private cartService = inject(CartService);
 
   ngOnInit() {
     if (this.id) {
@@ -39,5 +41,12 @@ export class ProductDetailComponent {
 
   changeCover(newImage: string) {
     this.coverImg.set(newImage);
+  }
+
+  addToCart() {
+    const product = this.product();
+    if (product) {
+      this.cartService.addToCart(product);
+    }
   }
 }
