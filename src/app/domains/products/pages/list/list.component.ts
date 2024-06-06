@@ -22,12 +22,7 @@ export class ListComponent {
   ngOnInit() {
     this.productService.getProducts().subscribe({
       next: (productsData) => {
-        const products = productsData.map((product) => {
-          if (product.images.length > 0 && product.images[0].startsWith('["')) {
-            product.images = product.images.map((img) => img.replace(/^\["|"|\]$/g, ''));
-          }
-          return product;
-        });
+        const products = this.sanitizeImagesUrl(productsData);
         this.products.set(products);
       },
       error: (error) => console.error(error),
@@ -37,5 +32,17 @@ export class ListComponent {
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
+  }
+
+  sanitizeImagesUrl(products: Product[]) {
+    products.map((product) => {
+      if (product.images.length > 0 && product.images[0].startsWith('["')) {
+        product.images = product.images.map((img) =>
+          img.replace(/^\["|"|\]$/g, '')
+        );
+      }
+      return product;
+    });
+    return products;
   }
 }

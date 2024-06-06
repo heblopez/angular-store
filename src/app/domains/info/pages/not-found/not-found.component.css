@@ -11,7 +11,6 @@ html {
 body {
   font-family: inherit;
   font-size: 1.5rem;
-  color: var(--air-force-blue);
 }
 
 a {
@@ -37,7 +36,7 @@ a {
   font-weight: 900;
   font-size: 15rem;
   line-height: 1;
-  color: var(--air-force-blue);
+  color: var(--fire-brick);
 }
 
 .illustration {
@@ -53,7 +52,7 @@ a {
   width: 12.2rem;
   height: 11.4rem;
   border-radius: 50%;
-  background-color: var(--air-force-blue);
+  background-color: var(--fire-brick);
 }
 
 .clip {
@@ -74,7 +73,7 @@ a {
   transform: translateX(-50%);
   width: 9.2rem;
   height: 12.4rem;
-  border: 0.3rem solid var(--air-force-blue);
+  border: 0.3rem solid var(--fire-brick);
   background-color: white;
   border-radius: 0.8rem;
 }
@@ -87,7 +86,7 @@ a {
     width: 1.4rem;
     height: 1rem;
     background-color: white;
-    border-bottom: 0.3rem solid var(--air-force-blue);
+    border-bottom: 0.3rem solid var(--fire-brick);
     transform: rotate(45deg);
   }
 
@@ -110,7 +109,7 @@ a {
   width: 0.8rem;
   height: 0.8rem;
   border-radius: 50%;
-  background-color: var(--air-force-blue);
+  background-color: var(--fire-brick);
   animation-name: eye;
   animation-duration: 4s;
   animation-iteration-count: infinite;
@@ -168,7 +167,7 @@ a {
   height: 0.2rem;
   border-radius: 0.1rem;
   transform: translateX(-50%);
-  background-color: var(--air-force-blue);
+  background-color: var(--fire-brick);
 }
 
 .text {
@@ -181,8 +180,8 @@ a {
 .button {
   margin-top: 4rem;
   padding: 1.2rem 3rem;
-  color: var(--eerie-black);
-  background-color: var(--platinum);
+  color: var(--snow);
+  background-color: var(--eerie-black);
   cursor: pointer;
   border-radius: 0.75rem;
   font-size: 1rem;
@@ -190,6 +189,6 @@ a {
 }
 
 .button:hover {
-    background-color: var(--air-force-blue);
-    color: var(--snow)
+    background-color: var(--platinum);
+    color: var(--eerie-black)
 }
